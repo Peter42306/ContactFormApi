@@ -10,4 +10,11 @@
     <ProjectReference Include="..\ContactFormApi.Domain\ContactFormApi.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="DTOs\Feedback\" />
+    <Folder Include="Services\" />
+    <Folder Include="Validators\Contact\" />
+    <Folder Include="Validators\Feedback\" />
+  </ItemGroup>
+
 </Project>
