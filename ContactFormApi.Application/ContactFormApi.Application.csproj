@@ -12,9 +12,11 @@
 
   <ItemGroup>
     <Folder Include="DTOs\Feedback\" />
-    <Folder Include="Services\" />
-    <Folder Include="Validators\Contact\" />
     <Folder Include="Validators\Feedback\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="12.1.1" />
   </ItemGroup>
 
 </Project>
