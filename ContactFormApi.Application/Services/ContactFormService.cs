@@ -17,15 +17,18 @@ namespace ContactFormApi.Application.Services
         private readonly IValidator<ContactFormRequestDto> _validator;
         private readonly IContactMessageRepository _repository;
         //private readonly IEmailSender _emailSender;
+        private readonly IContactApplcationProvider _applcationProvider;
 
         public ContactFormService(
             IValidator<ContactFormRequestDto> validator,
-            IContactMessageRepository repository
-            /*IEmailSender emailSender*/)
+            IContactMessageRepository repository,
+            /*IEmailSender emailSender*/
+            IContactApplcationProvider applcationProvider)
         {
             _validator = validator;
             _repository = repository;
             //_emailSender = emailSender;
+            _applcationProvider = applcationProvider;
         }
 
         public async Task<ContactFormResponseDto> SendAsync(
@@ -42,15 +45,28 @@ namespace ContactFormApi.Application.Services
                 };
             }
 
+            var application = _applcationProvider.GetByAppKey(request.AppKey);
+            if (application is null)
+            {
+                return new ContactFormResponseDto
+                {
+                    Success = false,
+                    Message = "Unknown application."
+                };
+            }
+
             var contactMessage = new ContactMessage
             {
                 Id = Guid.NewGuid(),
-                AppKey = request.AppKey,
-                AppName = request.AppKey,
+                AppKey = application.AppKey,
+                AppName = application.AppName,
+
                 SenderName = request.SenderName,
                 SenderEmail = request.SenderEmail,
+
                 Subject = request.Subject,
                 Body = request.Body,
+
                 Status = ContactMessageStatus.Pending,
                 CreatedAtUtc = DateTime.UtcNow
             };

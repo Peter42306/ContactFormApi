@@ -1,9 +1,11 @@
 ﻿using ContactFormApi.Application.Interfaces.Repositories;
+using ContactFormApi.Infrastructure.Configuration;
 using ContactFormApi.Infrastructure.Data;
 using ContactFormApi.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ContactFormApi.Application.Interfaces.Services;
 
 namespace ContactFormApi.Infrastructure
 {
@@ -21,6 +23,10 @@ namespace ContactFormApi.Infrastructure
                 options.UseNpgsql(connectionString));
 
             services.AddScoped<IContactMessageRepository, ContactMessageRepository>();
+
+            services.Configure<ContactApplicationsOptions>(configuration.GetSection(ContactApplicationsOptions.SectionName));
+
+            services.AddSingleton<IContactApplcationProvider, ContactApplicationProvider>();
 
             return services;
         }
