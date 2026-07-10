@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ContactFormApi.Application.Interfaces.Services
 {
-    public interface IContactApplcationProvider
+    public interface IContactApplicationProvider
     {
         ContactApplicationSettings? GetByAppKey(string appKey);
     }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ContactFormApi.Infrastructure.Configuration
 {
-    public sealed class ContactApplicationProvider : IContactApplcationProvider
+    public sealed class ContactApplicationProvider : IContactApplicationProvider
     {
         private readonly ContactApplicationsOptions _options;
 

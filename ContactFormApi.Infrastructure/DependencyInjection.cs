@@ -26,7 +26,7 @@ namespace ContactFormApi.Infrastructure
 
             services.Configure<ContactApplicationsOptions>(configuration.GetSection(ContactApplicationsOptions.SectionName));
 
-            services.AddSingleton<IContactApplcationProvider, ContactApplicationProvider>();
+            services.AddSingleton<IContactApplicationProvider, ContactApplicationProvider>();
 
             return services;
         }

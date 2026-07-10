@@ -17,13 +17,13 @@ namespace ContactFormApi.Application.Services
         private readonly IValidator<ContactFormRequestDto> _validator;
         private readonly IContactMessageRepository _repository;
         //private readonly IEmailSender _emailSender;
-        private readonly IContactApplcationProvider _applcationProvider;
+        private readonly IContactApplicationProvider _applcationProvider;
 
         public ContactFormService(
             IValidator<ContactFormRequestDto> validator,
             IContactMessageRepository repository,
             /*IEmailSender emailSender*/
-            IContactApplcationProvider applcationProvider)
+            IContactApplicationProvider applcationProvider)
         {
             _validator = validator;
             _repository = repository;
