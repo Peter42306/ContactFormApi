@@ -16,16 +16,16 @@ namespace ContactFormApi.Application.Services
     {
         private readonly IValidator<ContactFormRequestDto> _validator;
         private readonly IContactMessageRepository _repository;
-        private readonly IEmailSender _emailSender;
+        //private readonly IEmailSender _emailSender;
 
         public ContactFormService(
             IValidator<ContactFormRequestDto> validator,
-            IContactMessageRepository repository,
-            IEmailSender emailSender)
+            IContactMessageRepository repository
+            /*IEmailSender emailSender*/)
         {
             _validator = validator;
             _repository = repository;
-            _emailSender = emailSender;
+            //_emailSender = emailSender;
         }
 
         public async Task<ContactFormResponseDto> SendAsync(
