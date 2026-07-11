@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ContactFormApi.Application.Interfaces.Services;
+using ContactFormApi.Infrastructure.Email;
 
 namespace ContactFormApi.Infrastructure
 {
@@ -24,9 +25,15 @@ namespace ContactFormApi.Infrastructure
 
             services.AddScoped<IContactMessageRepository, ContactMessageRepository>();
 
-            services.Configure<ContactApplicationsOptions>(configuration.GetSection(ContactApplicationsOptions.SectionName));
+            services.Configure<ContactApplicationsOptions>(
+                configuration.GetSection(ContactApplicationsOptions.SectionName));
 
             services.AddSingleton<IContactApplicationProvider, ContactApplicationProvider>();
+
+            services.Configure<SendGridOptions>(
+                configuration.GetSection(SendGridOptions.SectionName));
+
+            services.AddScoped<IEmailSender, SendGridEmailSender>();
 
             return services;
         }
