@@ -8,6 +8,8 @@ namespace ContactFormApi.Domain.Enums
 {
     public enum FeedbackType
     {
+        Unknown = 0,
+
         General = 1,
         BugReport = 2,
         FeatureRequest = 3,

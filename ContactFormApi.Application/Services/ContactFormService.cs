@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace ContactFormApi.Application.Services
 {
-    public class ContactFormService : IContactFormService
+    public sealed class ContactFormService : IContactFormService
     {
         private readonly IValidator<ContactFormRequestDto> _validator;
         private readonly IContactMessageRepository _repository;
@@ -43,7 +43,7 @@ namespace ContactFormApi.Application.Services
                 return new ContactFormResponseDto
                 {
                     Success = false,
-                    Message = "Invalid contact form data"
+                    Message = "Invalid contact form data."
                 };
             }
 

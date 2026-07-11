@@ -7,7 +7,7 @@ namespace ContactFormApi.Api.Controllers
 {
     [ApiController]
     [Route("api/contact")]    
-    public class ContactController : ControllerBase
+    public sealed class ContactController : ControllerBase
     {
         private readonly IContactFormService _contactFormService;
 

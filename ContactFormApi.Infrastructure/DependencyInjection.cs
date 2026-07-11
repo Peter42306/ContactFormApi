@@ -35,6 +35,8 @@ namespace ContactFormApi.Infrastructure
 
             services.AddScoped<IEmailSender, SendGridEmailSender>();
 
+            services.AddScoped<IFeedbackMessageRepository, FeedbackMessageRepository>();
+
             return services;
         }
     }

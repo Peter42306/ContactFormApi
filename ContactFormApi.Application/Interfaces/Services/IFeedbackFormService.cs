@@ -1,4 +1,4 @@
-﻿using ContactFormApi.Application.DTOs.Contact;
+﻿using ContactFormApi.Application.DTOs.Feedback;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace ContactFormApi.Application.Interfaces.Services
 {
-    public interface IContactFormService
+    public interface IFeedbackFormService
     {
-        Task<ContactFormResponseDto> SendAsync(
-            ContactFormRequestDto request, 
+        Task<FeedbackFormResponseDto> SubmitAsync(
+            FeedbackFormRequestDto request,
             CancellationToken ct = default);
     }
 }

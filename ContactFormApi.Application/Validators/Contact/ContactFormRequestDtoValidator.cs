@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ContactFormApi.Application.Validators.Contact
 {
-    public class ContactFormRequestDtoValidator : AbstractValidator<ContactFormRequestDto>
+    public sealed class ContactFormRequestDtoValidator : AbstractValidator<ContactFormRequestDto>
     {
         public ContactFormRequestDtoValidator()
         {

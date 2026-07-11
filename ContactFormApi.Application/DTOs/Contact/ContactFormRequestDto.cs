@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ContactFormApi.Application.DTOs.Contact
 {
-    public record ContactFormRequestDto
+    public sealed record ContactFormRequestDto
     {
         public string AppKey { get; init; } = string.Empty;
 

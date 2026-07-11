@@ -9,29 +9,29 @@ using System.Threading.Tasks;
 
 namespace ContactFormApi.Infrastructure.Repositories
 {
-    public sealed class ContactMessageRepository : IContactMessageRepository
+    public sealed class FeedbackMessageRepository : IFeedbackMessageRepository
     {
         private readonly ApplicationDbContext _context;
 
-        public ContactMessageRepository(ApplicationDbContext context)
+        public FeedbackMessageRepository(ApplicationDbContext context)
         {
             _context = context;
         }
 
 
         public async Task AddAsync(
-            ContactMessage message, 
+            FeedbackMessage message, 
             CancellationToken ct = default)
         {
-            await _context.ContactMessages.AddAsync(message, ct);
+            await _context.FeedbackMessages.AddAsync(message, ct);
             await _context.SaveChangesAsync(ct);
         }
 
         public async Task UpdateAsync(
-            ContactMessage message, 
+            FeedbackMessage message,
             CancellationToken ct = default)
         {
-            _context.ContactMessages.Update(message);
+            _context.FeedbackMessages.Update(message);
             await _context.SaveChangesAsync(ct);
         }
     }

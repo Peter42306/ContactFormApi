@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace ContactFormApi.Application.Interfaces.Repositories
 {
-    public interface IContactMessageRepository
+    public interface IFeedbackMessageRepository
     {
         Task AddAsync(
-            ContactMessage message,
+            FeedbackMessage message,
             CancellationToken ct = default);
 
         Task UpdateAsync(
-            ContactMessage message,
+            FeedbackMessage message,
             CancellationToken ct = default);
     }
 }
