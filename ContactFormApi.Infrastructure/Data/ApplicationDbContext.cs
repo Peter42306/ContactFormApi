@@ -15,5 +15,6 @@ namespace ContactFormApi.Infrastructure.Data
         }
 
         public DbSet<ContactMessage> ContactMessages => Set<ContactMessage>();
+        public DbSet<FeedbackMessage> FeedbackMessages => Set<FeedbackMessage>();
     }
 }

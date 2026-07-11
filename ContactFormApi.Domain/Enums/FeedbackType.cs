@@ -11,6 +11,7 @@ namespace ContactFormApi.Domain.Enums
         General = 1,
         BugReport = 2,
         FeatureRequest = 3,
-        Praise = 4
+        Complaint = 4,
+        Praise = 5
     }
 }

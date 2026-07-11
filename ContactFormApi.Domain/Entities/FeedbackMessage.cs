@@ -15,7 +15,7 @@ namespace ContactFormApi.Domain.Entities
         public string AppName { get; set; } = string.Empty;
 
         public string? UserId { get; set; }
-        public string? UserEmail { get; set; }
+        public string? SenderEmail { get; set; }
 
         public FeedbackType Type { get; set; } = FeedbackType.General;
         public FeedbackStatus Status { get; set; } = FeedbackStatus.New;
@@ -24,8 +24,12 @@ namespace ContactFormApi.Domain.Entities
         public string Body { get; set; } = string.Empty;
 
         public DateTime CreatedAtUtc { get; set; } = DateTime.UtcNow;
-        public DateTime ReviewedAtUtc { get; set; }
+        public DateTime? ReviewedAtUtc { get; set; }
 
         public string? AdminNote { get; set; }
+
+        // Notification on sending Feedback Message to admin via email
+        public DateTime? NotificationSentAtUtc { get; set; }
+        public string? NotificationError { get; set; }
     }
 }
