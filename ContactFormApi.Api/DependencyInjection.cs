@@ -1,4 +1,6 @@
-﻿namespace ContactFormApi.Api
+﻿using Microsoft.AspNetCore.RateLimiting;
+
+namespace ContactFormApi.Api
 {
     public static class DependencyInjection
     {
@@ -20,6 +22,21 @@
                         .WithOrigins(allowedOrigins)
                         .AllowAnyHeader()
                         .AllowAnyMethod();
+                });
+            });
+
+            //services.AddHealthChecks();
+
+            services.AddRateLimiter(options =>
+            {
+                options.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
+
+                options.AddFixedWindowLimiter("PublicForms", limiterOptions =>
+                {
+                    limiterOptions.PermitLimit = 5;
+                    limiterOptions.Window = TimeSpan.FromMinutes(1);
+                    limiterOptions.QueueLimit = 0;
+                    limiterOptions.AutoReplenishment = true;
                 });
             });
 

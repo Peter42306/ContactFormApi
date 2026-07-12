@@ -33,10 +33,13 @@ namespace ContactFormApi.Api
 
             app.UseCors("AllowedOrigins");
 
+            app.UseRateLimiter();
+
             app.UseAuthorization();
 
-
             app.MapControllers();
+
+            //app.MapHealthChecks("/health");
 
             app.Run();
         }

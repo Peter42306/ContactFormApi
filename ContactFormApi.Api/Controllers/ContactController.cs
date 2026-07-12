@@ -2,11 +2,13 @@
 using ContactFormApi.Application.Interfaces.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 
 namespace ContactFormApi.Api.Controllers
 {
-    [ApiController]
-    [Route("api/contact")]    
+    [ApiController]    
+    [Route("api/contact")]
+    [EnableRateLimiting("PublicForms")]
     public sealed class ContactController : ControllerBase
     {
         private readonly IContactFormService _contactFormService;

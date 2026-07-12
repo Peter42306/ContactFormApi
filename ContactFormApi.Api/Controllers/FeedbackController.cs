@@ -2,11 +2,13 @@
 using ContactFormApi.Application.Interfaces.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 
 namespace ContactFormApi.Api.Controllers
 {
     [ApiController]
     [Route("api/feedback")]
+    [EnableRateLimiting("PublicForms")]
     public sealed class FeedbackController : ControllerBase
     {
         private readonly IFeedbackFormService _feedbackFormService;
