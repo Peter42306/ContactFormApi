@@ -18,6 +18,7 @@ namespace ContactFormApi.Api
 
             builder.Services.AddApplication();
             builder.Services.AddInfrastructure(builder.Configuration);
+            builder.Services.AddApi(builder.Configuration);
 
             var app = builder.Build();
 
@@ -29,6 +30,8 @@ namespace ContactFormApi.Api
             }
 
             app.UseHttpsRedirection();
+
+            app.UseCors("AllowedOrigins");
 
             app.UseAuthorization();
 
