@@ -1,7 +1,5 @@
 # ContactFormApi
 
-## About
-
 REST API for integration of ***Contact Forms*** and ***Feedback Forms*** to web applications and static websites.
 
 Messages from ***Contact Forms*** and ***Feedback Forms*** are stored in ***PostgreSQL*** and email notifications are delivered using ***SendGrid***.
